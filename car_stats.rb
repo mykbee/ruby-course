@@ -26,8 +26,8 @@ class CarStats
   end
 end
 
-
-class CarStats
-  def self.calc_top_color(cars)
-    colors = cars.map { |c| c.color }
-    histogram = colors.inject(Hash.new(0)) do 
+# Incomplete 
+# class CarStats
+#   def self.calc_top_color(cars)
+#     colors = cars.map { |c| c.color }
+#     histogram = colors.inject(Hash.new(0)) do 
