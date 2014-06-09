@@ -94,4 +94,14 @@ describe 'Exercise 7' do
     expect(a.last).to eq('cat')    
   end
 
+describe 'Exercise 8' do
+
+  it 'iterates through "people" array and returns name and occupation' do
+    a = [ { :name => 'andy', :occupation => 'badass'}, { :name => 'mike', :occupation => 'carrot eater'} ]
+    STDOUT.should_receive(:puts).with('andy: badass')
+    STDOUT.should_receive(:puts).with('mike: carrot eater')
+    Exercises.ex8(a)
+  end
+end
+
 end
