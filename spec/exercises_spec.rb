@@ -50,6 +50,15 @@ describe 'Exercise 4' do
     result = Exercises.ex4(a)
     expect(result).to eq(12)
   end
+end
 
+describe 'Exercise 5' do
 
+  it 'puts each element of an array' do
+    a = ['dog', 'cat', 'pony']
+    STDOUT.should_receive(:puts).with('dog')
+    STDOUT.should_receive(:puts).with('cat')
+    STDOUT.should_receive(:puts).with('pony')
+    Exercises.ex5(a)
+  end
 end
