@@ -35,3 +35,12 @@ describe 'Exercise 2' do
     expect(result).to eq('b')
   end  
 end
+
+describe 'Exercise 3' do
+
+  it 'returns the sum of a given array of numbers' do
+    a = (1..4).to_a
+    result = Exercises.ex3(a)
+    expect(result).to eq(10)
+  end
+end
