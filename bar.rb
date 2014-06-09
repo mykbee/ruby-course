@@ -39,7 +39,8 @@ class Bar
   end
 
   def get_price(drink_name)
-    @menu_items.find { |drink| drink.name == drink_name }.price 
+    price = @menu_items.find { |drink| drink.name == drink_name }.price 
+    happy_hour? ? price * 0.5 : price
   end
 
 end
