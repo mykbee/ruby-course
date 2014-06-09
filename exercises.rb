@@ -17,6 +17,7 @@ module Exercises
   #  - Returns the number of elements in the array
   def self.ex1(array)
     # TODO
+    array.size
   end
 
   # Exercise 2

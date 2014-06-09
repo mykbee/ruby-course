@@ -15,14 +15,14 @@ describe 'Exercise 0' do
     expect(result).to eq('nope')
   end
 
+end
 
+describe 'Exercise 1' do
 
-
-
-
-
-
-
-
+  it 'returns the number of elements in the array' do
+    a = Array.new(3)
+    result = Exercises.ex1(a)
+    expect(result).to eq(3)
+  end
 
 end
