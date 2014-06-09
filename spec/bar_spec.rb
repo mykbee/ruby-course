@@ -81,17 +81,27 @@ describe Bar do
   # DO NOT CHANGE SPECS ABOVE THIS LINE #
 # # # # # # # # # # # # # # # # # # # # # #
 
-  describe '#happy_hour?', :pending => true do
+  describe '#happy_hour?' do
     it "knows when it is happy hour (3:00pm to 4:00pm)" do
       # TODO: CONTROL TIME
+      expect(Time).to receive(:now).and_return(Time.parse('3pm'))
       expect(@bar.happy_hour?).to eq(true)
     end
 
     it "is not happy hour otherwise" do
       # TODO: CONTROL TIME
+      expect(Time).to receive(:now).and_return(Time.parse('6pm'))
       expect(@bar.happy_hour?).to eq(false)
     end
+  
+
+  describe '#get_price' do
+    it "gets price for a drink" do 
+      @bar.add_menu_item('Wine', 5.40)
+      expect(@bar.get_price('Wine')).to eq(5.40)
+    end
   end
+end
 
   context "During normal hours" do
     # TODO: WRITE TESTS TO ENSURE BAR KNOWS NOT TO DISCOUNT

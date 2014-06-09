@@ -27,9 +27,21 @@ class Bar
       @happy_discount = discount
     end
   end
+ 
 
   def happy_hour?
+    hour = Time.now.hour
+    if hour == 15
+      true
+    else
+      false
+    end
   end
+
+  def get_price(drink_name)
+    @menu_items.find { |drink| drink.name == drink_name }.price 
+  end
+
 end
 
 class MenuItem
@@ -40,3 +52,5 @@ class MenuItem
     @price = price
   end
 end
+
+
