@@ -62,3 +62,20 @@ describe 'Exercise 5' do
     Exercises.ex5(a)
   end
 end
+
+describe 'Exercise 6' do
+
+  it 'updates last item in array to "panda"' do
+    a = ['boy', 'girl', 'computer']
+    Exercises.ex6(a)
+    expect(a.last).to eq('panda')
+  end
+
+  it 'updates to GODZILLA if "panda" is already last element' do
+    b = ['table', 'chair', 'panda']
+    Exercises.ex6(b)
+    expect(b.last).to eq('GODZILLA')
+  end
+
+
+end
