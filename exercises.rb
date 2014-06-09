@@ -1,3 +1,4 @@
+# Mike B. and Andy S.
 
 module Exercises
   # Exercise 0
@@ -5,6 +6,11 @@ module Exercises
   #  - Returns "nope" if `str` is "wishes"
   def self.ex0(str)
     # TODO
+    if str == 'wishes'
+      return 'nope'
+    else
+      str * 3
+    end
   end
 
   # Exercise 1
