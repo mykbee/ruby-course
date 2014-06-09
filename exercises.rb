@@ -110,6 +110,69 @@ class RPS
   #
   # You will be using this class in the following class, which will let players play
   # RPS through the terminal.
+
+  def initialize (p1, p2)
+    @p1 = p1
+    @p2 = p2
+    @v1 = 0
+    @v2 = 0
+  end
+
+  def play(m1, m2)
+    if @v1 >= 2 || @v2 >= 2
+      return puts "The game is already over!"
+    end
+    case
+    when m1 == "rock"
+      if m2 == "scissors"
+        @v1 += 1
+        return puts "p1 wins"
+      elsif m2 == "paper"
+        @v2 += 1
+        return puts "p2 wins"
+      else m2 == "rock"
+        return puts "tie"
+      end 
+    when m1 == "paper"
+      if m2 == "rock"
+        @v1 += 1
+        return puts "p1 wins"
+      elsif m2 == "scissors"
+        @v2 += 1
+        return puts "p2 wins"
+      else m2 == "paper"
+        return puts "tie"
+      end 
+    when m1 == "scissors"
+      if m2 == "paper"
+        @v1 += 1
+        return puts "p1 wins"
+      elsif m2 == "rock"
+        @v2 += 1
+        return puts "p2 wins"
+      else m2 == "scissors"
+        return puts "tie"
+      end 
+    end
+  end
+    
+    # Example:
+
+    # @beats = {
+    #   'r' => 'p',
+    #   'p' => 's',
+    #   's' => 'r'
+    # }
+
+    # def play p1, p2
+    #   if p1 == @beats[p2]
+    #     puts "p1 wins"
+    #   elsif p2 == @beats[p1]
+    #     puts "p2 wins"
+    #   else
+    #     puts "tie"
+    #   end
+    # end
 end
 
 
@@ -128,7 +191,7 @@ class RPSPlayer
   def start
 
     # TODO
-
+    
     # PRO TIP: Instead of using plain `gets` for grabbing a player's
     #          move, this line does the same thing but does NOT show
     #          what the player is typing! :D
