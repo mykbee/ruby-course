@@ -93,6 +93,7 @@ describe 'Exercise 7' do
     Exercises.ex7(a, b)
     expect(a.last).to eq('cat')    
   end
+end
 
 describe 'Exercise 8' do
 
@@ -104,4 +105,17 @@ describe 'Exercise 8' do
   end
 end
 
+describe 'Exercise 9' do
+
+  it 'returns "true" if the given year is in a leap year' do
+    year = 2000
+    result = Exercises.ex9(year)
+    expect(result).to eq(true)
+  end
+
+  it 'returns "false" if the given year is not in a leap year' do
+    year = 1999
+    result = Exercises.ex9(year)
+    expect(result).to eq(false)
+  end
 end
