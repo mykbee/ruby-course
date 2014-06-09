@@ -26,3 +26,12 @@ describe 'Exercise 1' do
   end
 
 end
+
+describe 'Exercise 2' do
+
+  it 'returns the second element of an array' do
+    a = ['a', 'b', 'c']
+    result = Exercises.ex2(a)
+    expect(result).to eq('b')
+  end  
+end
