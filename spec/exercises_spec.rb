@@ -14,7 +14,6 @@ describe 'Exercise 0' do
     result = Exercises.ex0('wishes')
     expect(result).to eq('nope')
   end
-
 end
 
 describe 'Exercise 1' do
@@ -24,7 +23,6 @@ describe 'Exercise 1' do
     result = Exercises.ex1(a)
     expect(result).to eq(3)
   end
-
 end
 
 describe 'Exercise 2' do
@@ -43,4 +41,15 @@ describe 'Exercise 3' do
     result = Exercises.ex3(a)
     expect(result).to eq(10)
   end
+end
+
+describe 'Exercise 4' do
+
+  it 'returns the max number of the given array' do
+    a = [4, 9, 12]
+    result = Exercises.ex4(a)
+    expect(result).to eq(12)
+  end
+
+
 end
