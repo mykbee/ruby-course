@@ -76,6 +76,22 @@ describe 'Exercise 6' do
     Exercises.ex6(b)
     expect(b.last).to eq('GODZILLA')
   end
+end
 
+describe 'Exercise 7' do
+
+  it 'if a string is not in an array, returns same array' do
+    a = ['dog', 'cat', 'pony']
+    b = 'string'
+    result = Exercises.ex7(a, b)
+    expect(result).to eq(a)
+  end
+
+  it 'adds a string to end of array if string is already in array' do
+    a = ['dog', 'cat', 'pony']
+    b = 'cat'
+    Exercises.ex7(a, b)
+    expect(a.last).to eq('cat')    
+  end
 
 end
