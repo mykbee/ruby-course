@@ -97,7 +97,7 @@ module Exercises
 end
 
 
-class RPS
+
   # Rock, Paper, Scissors
   # Make a 2-player game of rock paper scissors. It should have the following:
   #
@@ -110,8 +110,9 @@ class RPS
   #
   # You will be using this class in the following class, which will let players play
   # RPS through the terminal.
-
+class RPS
   attr_reader :p1, :p2
+  attr_accessor :v1, :v2
 
   def initialize (p1, p2)
     @p1 = p1
@@ -121,42 +122,43 @@ class RPS
   end
 
   def play(m1, m2)
-    if @v1 >= 2 || @v2 >= 2
+    if @v1 == 2 || @v2 == 2
       return puts "The game is already over!"
     end
-    case play
+    case
     when m1 == "rock"
       if m2 == "scissors"
         @v1 += 1
-        return puts "p1 wins"
+        return puts "#{@p1} beat #{@p2} with #{m1}!", "#{@v1} : #{@v2}"
       elsif m2 == "paper"
         @v2 += 1
-        return puts "p2 wins"
+        return puts "#{@p2} beat #{@p1} with #{m2}!", "#{@v1} : #{@v2}"
       else m2 == "rock"
         return puts "tie"
       end 
     when m1 == "paper"
       if m2 == "rock"
         @v1 += 1
-        return puts "p1 wins"
+        return puts "#{@p1} beat #{@p2} with #{m1}!", "#{@v1} : #{@v2}"
       elsif m2 == "scissors"
         @v2 += 1
-        return puts "p2 wins"
+        return puts "#{@p2} beat #{@p1} with #{m2}!", "#{@v1} : #{@v2}"
       else m2 == "paper"
         return puts "tie"
       end 
     when m1 == "scissors"
       if m2 == "paper"
         @v1 += 1
-        return puts "p1 wins"
+        return puts "#{@p1} beat #{@p2} with #{m1}!", "#{@v1} : #{@v2}"
       elsif m2 == "rock"
         @v2 += 1
-        return puts "p2 wins"
+        return puts "#{@p2} beat #{@p1} with #{m2}!", "#{@v1} : #{@v2}"
       else m2 == "scissors"
         return puts "tie"
-      end 
+      end
     end
   end
+end
     
     # Example:
 
@@ -175,11 +177,6 @@ class RPS
     #     puts "tie"
     #   end
     # end
-end
-
-
-require 'io/console'
-class RPSPlayer
 
   # (No specs are required for RPSPlayer)
   #
@@ -191,12 +188,37 @@ class RPSPlayer
   # lets both players play the game.
   #
   # When the game ends, ask if the player wants to play again.
+
+require 'io/console'
+class RPSPlayer
+  attr_reader :m1, :m2
+  
   def start
-    game = RPS.new
-    puts "Player 1, enter your move!"
-    m1 = STDIN.noecho(&:gets).chomp
-    puts "Player 2, enter your move!"
-    m2 = STDIN.noecho(&:gets).chomp
+    puts "Player 1, enter your name!"
+    @p1 = gets.chomp
+    puts "Player 2, enter your name!"
+    @p2 = gets.chomp
+    game = RPS.new(@p1, @p2)
+
+    until game.v1 == 2 || game.v2 == 2 do
+      puts "#{@p1}, enter your move!"
+      m1 = STDIN.noecho(&:gets).chomp
+      puts "#{@p2}, enter your move!"
+      m2 = STDIN.noecho(&:gets).chomp
+      game.play(m1, m2)
+    end
+
+    puts "Do you want to play again? 'Y' or 'N'?"
+    answer = gets.chomp.upcase
+    if answer == 'Y'
+      RPSPlayer.new.start
+    else
+      puts "Bye!"
+    end
+  end
+end
+
+RPSPlayer.new.start
     
     # TODO
 
@@ -205,9 +227,6 @@ class RPSPlayer
     #          what the player is typing! :D
     # This is also why we needed to require 'io/console'
     # move = STDIN.noecho(&:gets)
-  end
-end
-
 
 module Extensions
   # Extension Exercise
