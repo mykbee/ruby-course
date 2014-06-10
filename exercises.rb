@@ -111,6 +111,8 @@ class RPS
   # You will be using this class in the following class, which will let players play
   # RPS through the terminal.
 
+  attr_reader :p1, :p2
+
   def initialize (p1, p2)
     @p1 = p1
     @p2 = p2
@@ -122,7 +124,7 @@ class RPS
     if @v1 >= 2 || @v2 >= 2
       return puts "The game is already over!"
     end
-    case
+    case play
     when m1 == "rock"
       if m2 == "scissors"
         @v1 += 1
@@ -178,6 +180,7 @@ end
 
 require 'io/console'
 class RPSPlayer
+
   # (No specs are required for RPSPlayer)
   #
   # Complete the `start` method so that it uses your RPS class to present
@@ -189,9 +192,14 @@ class RPSPlayer
   #
   # When the game ends, ask if the player wants to play again.
   def start
-
-    # TODO
+    game = RPS.new
+    puts "Player 1, enter your move!"
+    m1 = STDIN.noecho(&:gets).chomp
+    puts "Player 2, enter your move!"
+    m2 = STDIN.noecho(&:gets).chomp
     
+    # TODO
+
     # PRO TIP: Instead of using plain `gets` for grabbing a player's
     #          move, this line does the same thing but does NOT show
     #          what the player is typing! :D
